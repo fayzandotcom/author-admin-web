@@ -8,6 +8,7 @@ import { AuthGuard } from './_guards/index';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.component';
 import { BuyerFeedbackComponent } from './buyer-feedback/buyer-feedback.component';
 import { BuyerFeedbackDetailComponent } from './buyer-feedback-detail/buyer-feedback-detail.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
       children: [
         { path: 'dashboard',      component: DashboardComponent },
         { path: 'user-profile',   component: UserProfileComponent },
+        { path: 'change-password',  component: ChangePasswordComponent },
         { path: 'verify-attempt', component: VerifyAttemptComponent },
         { path: 'buyer-feedback', component: BuyerFeedbackComponent },
         { path: 'buyer-feedback/:id', component: BuyerFeedbackDetailComponent },

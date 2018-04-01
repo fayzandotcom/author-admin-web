@@ -19,6 +19,7 @@ import { AlertService, AuthenticationService, UserService, VerifyAttemptService,
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.component';
 import { BuyerFeedbackComponent } from './buyer-feedback/buyer-feedback.component';
 import { BuyerFeedbackDetailComponent } from './buyer-feedback-detail/buyer-feedback-detail.component';
@@ -39,6 +40,7 @@ import { SecureLayoutComponent } from './_layout/secure-layout/secure-layout.com
     AlertComponent,
     DashboardComponent,
     UserProfileComponent,
+    ChangePasswordComponent,
     VerifyAttemptComponent,
     BuyerFeedbackComponent,
     BuyerFeedbackDetailComponent,
