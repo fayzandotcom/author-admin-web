@@ -8,6 +8,10 @@ import { AuthGuard } from './_guards/index';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.component';
+import { BuyerFeedbackComponent } from './buyer-feedback/buyer-feedback.component';
+import { BuyerFeedbackDetailComponent } from './buyer-feedback-detail/buyer-feedback-detail.component';
+import { BuyerFeedbackFormComponent } from './buyer-feedback-form/buyer-feedback-form.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
@@ -16,7 +20,6 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { PublicLayoutComponent } from './_layout/public-layout/public-layout.component';
 import { SecureLayoutComponent } from './_layout/secure-layout/secure-layout.component';
-import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.component';
 
 const routes: Routes = [
 
@@ -28,6 +31,7 @@ const routes: Routes = [
       children: [
         { path: 'login', component: LoginComponent },
         { path: 'logout', component: LoginComponent },
+        { path: 'feedback', component: BuyerFeedbackFormComponent },
       ]
     },
     // secure routes
@@ -39,6 +43,8 @@ const routes: Routes = [
         { path: 'dashboard',      component: DashboardComponent },
         { path: 'user-profile',   component: UserProfileComponent },
         { path: 'verify-attempt', component: VerifyAttemptComponent },
+        { path: 'buyer-feedback', component: BuyerFeedbackComponent },
+        { path: 'buyer-feedback/:id', component: BuyerFeedbackDetailComponent },
         { path: 'table-list',     component: TableListComponent },
         { path: 'typography',     component: TypographyComponent },
         { path: 'icons',          component: IconsComponent },

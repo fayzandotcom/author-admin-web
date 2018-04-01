@@ -1,0 +1,54 @@
+<div class="wrapper wrapper-full-page">
+    <div class="content">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-header text-center" data-background-color="blue">
+                        <h4 class="card-title">Feedback Form</h4>
+                        <p class="category">Hi, If you have any query please write to us. Thanks!</p>
+                      </div>
+                      <div class="card-content">
+                        <alert></alert>
+                        <form name="form" (ngSubmit)="f.form.valid && insertNew()" #f="ngForm" novalidate>
+                            <div class="row"> 
+                                <div class="col-md-12">
+                                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !purchaseCode.valid }">
+                                        <label class="control-label">Purchase Code</label>
+                                        <input type="text" class="form-control" name="purchaseCode" [(ngModel)]="model.purchaseCode" #purchaseCode="ngModel" required>
+                                        <div *ngIf="f.submitted && !purchaseCode.valid" class="text-danger">Purchase code is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Phone</label>
+                                        <input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !message.valid }">
+                                        <label class="control-label">Message</label>
+                                        <textarea class="form-control" name="message" [(ngModel)]="model.message" #message="ngModel" required></textarea>
+                                        <div *ngIf="f.submitted && !message.valid" class="text-danger">Message is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button [disabled]="loading" class="btn btn-info pull-right">Submit</button>
+                        </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="blue">
+                    <h4 class="title">Buyer Feedback</h4>
+                    <p class="category">Message details</p>
+                </div>
+                <div class="card-content">
+                    <alert></alert>
+                    <form name="form" #form="ngForm" novalidate>
+                        <div class="row"> 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Date</label>
+                                    <input type="text" class="form-control" name="created_date" [(ngModel)]="model.created_date" #created_date="ngModel" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Purchase Code</label>
+                                    <input type="text" class="form-control" name="purchase_code" [(ngModel)]="model.purchase_code" #purchase_code="ngModel" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Phone</label>
+                                    <input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Message</label>
+                                    <textarea class="form-control" name="message" [(ngModel)]="model.message" #message="ngModel" disabled></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="text-success">
+                                Current Status: 
+                                <span *ngIf="model.status==0"><strong>Unread</strong></span>
+                                <span *ngIf="model.status==1"><strong>Read</strong></span>
+                                <span *ngIf="model.status==2"><strong>Resolved</strong></span>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" [disabled]="loading" class="btn btn-success pull-right" (click)="updateStatus('0')">Unread</button>
+                                <button type="button" [disabled]="loading" class="btn btn-success pull-right" (click)="updateStatus('2')">Resolve</button>
+                                <button type="button" [disabled]="loading" class="btn btn-success pull-right" (click)="updateStatus('1')">Read</button>
+                                <p class="btn btn-default pull-right" disabled>Mask as :</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
