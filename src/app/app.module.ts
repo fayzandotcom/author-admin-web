@@ -15,10 +15,11 @@ import { ComponentsModule } from './components/components.module';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { JwtInterceptor } from './_helpers/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, VerifyAttemptService } from './_services/index';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
@@ -35,6 +36,7 @@ import { SecureLayoutComponent } from './_layout/secure-layout/secure-layout.com
     AlertComponent,
     DashboardComponent,
     UserProfileComponent,
+    VerifyAttemptComponent,
     TableListComponent,
     TypographyComponent,
     IconsComponent,
@@ -58,6 +60,7 @@ import { SecureLayoutComponent } from './_layout/secure-layout/secure-layout.com
     AuthGuard,
     AlertService,
     AuthenticationService,
+    VerifyAttemptService,
     UserService,
     {
         provide: HTTP_INTERCEPTORS,

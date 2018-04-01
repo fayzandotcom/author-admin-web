@@ -1,0 +1,66 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="blue">
+                    <h4 class="title">Verify Attempts</h4>
+                    <p class="category">Purchase code verification attempts</p>
+                </div>
+                <div class="card-content">
+                    <form name="formSearch" (ngSubmit)="formSearch.form.valid && search()" #formSearch="ngForm" novalidate>
+                        <div class="row"> 
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty" [ngClass]="{ 'has-error': formSearch.submitted && !purchaseCode.valid }">
+                                    <label class="control-label">Purchase Code</label>
+                                    <input type="text" class="form-control" name="purchaseCode" [(ngModel)]="model.purchaseCode" #purchaseCode="ngModel" required>
+                                    <div *ngIf="formSearch.submitted && !purchaseCode.valid" class="help-block">Purchase Code is required</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" [disabled]="loading" class="btn btn-success">Search</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                    <alert></alert>
+                </div>
+                <div class="card-content" [hidden]="updateFormHidden">
+                    <form name="formUpdate" (ngSubmit)="formUpdate.form.valid && update()" #formUpdate="ngForm" novalidate>
+                        <div class="row"> 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Buyer name</label>
+                                    <input type="text" class="form-control" name="buyerName" [(ngModel)]="model.buyerName" #buyerName="ngModel" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Last Attempt</label>
+                                    <input type="text" class="form-control" name="lastAttemptDate" [(ngModel)]="model.lastAttemptDate" #lastAttemptDate="ngModel" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Tries Allowed</label>
+                                    <input type="text" class="form-control" name="triesAllowed" [(ngModel)]="model.triesAllowed" #triesAllowed="ngModel">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Total Attempt</label>
+                                    <input type="text" class="form-control" name="totalAttempt" [(ngModel)]="model.totalAttempt" #totalAttempt="ngModel" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" [disabled]="loading" class="btn btn-success pull-right">Update</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

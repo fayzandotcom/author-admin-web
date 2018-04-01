@@ -16,6 +16,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { PublicLayoutComponent } from './_layout/public-layout/public-layout.component';
 import { SecureLayoutComponent } from './_layout/secure-layout/secure-layout.component';
+import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.component';
 
 const routes: Routes = [
 
@@ -26,6 +27,7 @@ const routes: Routes = [
       component: PublicLayoutComponent,
       children: [
         { path: 'login', component: LoginComponent },
+        { path: 'logout', component: LoginComponent },
       ]
     },
     // secure routes
@@ -36,6 +38,7 @@ const routes: Routes = [
       children: [
         { path: 'dashboard',      component: DashboardComponent },
         { path: 'user-profile',   component: UserProfileComponent },
+        { path: 'verify-attempt', component: VerifyAttemptComponent },
         { path: 'table-list',     component: TableListComponent },
         { path: 'typography',     component: TypographyComponent },
         { path: 'icons',          component: IconsComponent },
