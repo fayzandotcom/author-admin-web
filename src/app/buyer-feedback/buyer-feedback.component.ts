@@ -19,7 +19,10 @@ export class BuyerFeedbackComponent implements OnInit {
     private alertService: AlertService) { }
 
   ngOnInit() {
+    this.getUnread();
+  }
 
+  getAll() {
     this.buyerFeedbackService.getAll()
       .subscribe(
         resp => {
@@ -28,7 +31,39 @@ export class BuyerFeedbackComponent implements OnInit {
         error => {
           this.alertService.error('No data found!');
         });
+  }
 
+  getUnread() {
+    this.buyerFeedbackService.getUnread()
+      .subscribe(
+        resp => {
+          this.tableData = resp.data;
+        },
+        error => {
+          this.alertService.error('No data found!');
+        });
+  }
+
+  getRead() {
+    this.buyerFeedbackService.getRead()
+      .subscribe(
+        resp => {
+          this.tableData = resp.data;
+        },
+        error => {
+          this.alertService.error('No data found!');
+        });
+  }
+
+  getResolved() {
+    this.buyerFeedbackService.getResolved()
+      .subscribe(
+        resp => {
+          this.tableData = resp.data;
+        },
+        error => {
+          this.alertService.error('No data found!');
+        });
   }
 
 }

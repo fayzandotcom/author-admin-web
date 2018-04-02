@@ -25,6 +25,48 @@ export class BuyerFeedbackService {
 
     }
 
+    getUnread() {
+        const url = this.config.API_BASE_URL + '/api/get/buyer/feedback/all?status=0';
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + token);
+        return this.http.get<any>(url, {headers})
+            .map(resp => {
+                if (resp && resp.count > 0) {
+                    return resp;
+                }
+                return Observable.throw('No data found.');
+            });
+    }
+
+    getRead() {
+        const url = this.config.API_BASE_URL + '/api/get/buyer/feedback/all?status=1';
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + token);
+        return this.http.get<any>(url, {headers})
+            .map(resp => {
+                if (resp && resp.count > 0) {
+                    return resp;
+                }
+                return Observable.throw('No data found.');
+            });
+    }
+
+    getResolved() {
+        const url = this.config.API_BASE_URL + '/api/get/buyer/feedback/all?status=2';
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + token);
+        return this.http.get<any>(url, {headers})
+            .map(resp => {
+                if (resp && resp.count > 0) {
+                    return resp;
+                }
+                return Observable.throw('No data found.');
+            });
+    }
+
     get(id: string) {
 
         const url = this.config.API_BASE_URL +  '/api/get/buyer/feedback?id=' + id;
