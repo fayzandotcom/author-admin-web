@@ -15,7 +15,8 @@ import { ComponentsModule } from './components/components.module';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { JwtInterceptor } from './_helpers/index';
-import { AlertService, AuthenticationService, UserService, VerifyAttemptService, BuyerFeedbackService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, VerifyAttemptService, BuyerFeedbackService,
+        DashboardService } from './_services/index';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -33,6 +34,8 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { LoginComponent } from './login/login.component';
 import { PublicLayoutComponent } from './_layout/public-layout/public-layout.component';
 import { SecureLayoutComponent } from './_layout/secure-layout/secure-layout.component';
+
+import { AppConfig } from './app.config'
 
 @NgModule({
   declarations: [
@@ -66,11 +69,13 @@ import { SecureLayoutComponent } from './_layout/secure-layout/secure-layout.com
   ],
   providers: [
     AuthGuard,
+    AppConfig,
     AlertService,
     AuthenticationService,
     VerifyAttemptService,
     BuyerFeedbackService,
     UserService,
+    DashboardService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: JwtInterceptor,

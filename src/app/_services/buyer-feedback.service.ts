@@ -2,16 +2,20 @@
 import { HttpClient, HttpHeaders, HttpResponse, HttpEvent, HttpParams } from '@angular/common/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
+import { AppConfig } from '../app.config';
 
 @Injectable()
 export class BuyerFeedbackService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private config: AppConfig) { }
 
     getAll() {
 
-        const url = 'http://localhost:8000/api/get/buyer/feedback/all';
-        return this.http.get<any>(url)
+        const url = this.config.API_BASE_URL + '/api/get/buyer/feedback/all';
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + token);
+        return this.http.get<any>(url, {headers})
             .map(resp => {
                 if (resp && resp.count > 0) {
                     return resp;
@@ -23,8 +27,11 @@ export class BuyerFeedbackService {
 
     get(id: string) {
 
-        const url = 'http://localhost:8000/api/get/buyer/feedback?id=' + id;
-        return this.http.get<any>(url)
+        const url = this.config.API_BASE_URL +  '/api/get/buyer/feedback?id=' + id;
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + token);
+        return this.http.get<any>(url, {headers})
             .map(resp => {
                 if (resp && resp.purchase_code != null) {
                     return resp;
@@ -36,11 +43,14 @@ export class BuyerFeedbackService {
 
     updateStatus(id: string, status: string) {
 
-        const url = 'http://localhost:8000/api/update/buyer/feedback/status';
+        const url = this.config.API_BASE_URL + '/api/update/buyer/feedback/status';
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + token);
         const body = new FormData();
         body.append('id', id);
         body.append('status', status);
-        return this.http.post<any>(url, body)
+        return this.http.post<any>(url, body, {headers})
             .map(data => {
                 return data;
             });
@@ -49,10 +59,13 @@ export class BuyerFeedbackService {
 
     delete(id: string) {
 
-        const url = 'http://localhost:8000/api/delete/buyer/feedback';
+        const url = this.config.API_BASE_URL +  '/api/delete/buyer/feedback';
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + token);
         const body = new FormData();
         body.append('id', id);
-        return this.http.post<any>(url, body)
+        return this.http.post<any>(url, body, {headers})
             .map(data => {
                 return data;
             });
@@ -61,7 +74,7 @@ export class BuyerFeedbackService {
 
     insertNew(purchaseCode: string, email: string, phone: string, message: string) {
 
-        const url = 'http://localhost:8000/api/public/buyer/feedback';
+        const url = this.config.API_BASE_URL + '/api/public/buyer/feedback';
         const body = new FormData();
         body.append('purchaseCode', purchaseCode);
         body.append('email', email);

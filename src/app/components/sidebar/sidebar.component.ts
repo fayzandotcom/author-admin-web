@@ -9,16 +9,16 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/verify-attempt', title: 'Verify Attempt',  icon: 'person', class: '' },
-    { path: '/buyer-feedback', title: 'Buyer Feedback',  icon: 'person', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon: 'person', class: '' },
+    { path: '/verify-attempt', title: 'Verify Attempt',  icon: 'done', class: '' },
+    { path: '/buyer-feedback', title: 'Buyer Feedback',  icon: 'feedback', class: '' },
+    { path: '/change-password', title: 'Change Password',  icon: 'person', class: '' },
+    { path: '/logout', title: 'Logout',  icon: 'lock', class: '' },
+    /*{ path: '/user-profile', title: 'User Profile',  icon: 'person', class: '' },
     { path: '/table-list', title: 'Table List',  icon: 'content_paste', class: '' },
     { path: '/typography', title: 'Typography',  icon: 'library_books', class: '' },
     { path: '/icons', title: 'Icons',  icon: 'bubble_chart', class: '' },
     { path: '/maps', title: 'Maps',  icon: 'location_on', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon: 'notifications', class: '' },
-    { path: '/change-password', title: 'Change Password',  icon: 'person', class: '' },
-    { path: '/logout', title: 'Logout',  icon: 'person', class: '' },
+    { path: '/notifications', title: 'Notifications',  icon: 'notifications', class: '' },*/
 ];
 
 @Component({
