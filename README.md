@@ -7,7 +7,8 @@ Web services consumed in this project can be find here https://github.com/fayzan
 ## Platform/Framework
 
 1. Angular 5
-2. Bootstrap 3
+2. TypeScript 2.5.3
+3. Bootstrap 3
 
 ## Installation
 
@@ -26,7 +27,7 @@ Web services consumed in this project can be find here https://github.com/fayzan
 
 ## History
 
-Version: 1.0
+Version: 1.0.0
 * Initial release.
 
 ## License
