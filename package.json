@@ -1,7 +1,7 @@
 {
   "name": "author-admin-web",
   "version": "1.0.0",
-  "license": "MIT",
+  "license": "GPLv2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
