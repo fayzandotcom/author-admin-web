@@ -73,8 +73,8 @@ export class DashboardService {
 
     }
 
-    getNewBuyerFeedback() {
-        const url = this.config.API_BASE_URL + '/api/get/new/buyer/feedback/10';
+    getCurrentPurchaseCode() {
+        const url = this.config.API_BASE_URL + '/api/get/current/purchase/code/10';
         const token = localStorage.getItem('token');
         const headers = new HttpHeaders()
             .set('Authorization', 'Bearer ' + token);

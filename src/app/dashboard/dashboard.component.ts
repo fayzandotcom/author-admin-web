@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as Chartist from 'chartist';
 
-import { DashboardService } from '../_services/index';
+import { DashboardService, AlertService, PurchaseCodeService } from '../_services/index';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,14 +13,19 @@ export class DashboardComponent implements OnInit {
   model: any = {};
   tableData = [];
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dashboardService: DashboardService,
+    private purchaseCodeService: PurchaseCodeService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
     this.getTotalPurchaseCodesCount();
     this.getExpirePurchaseCodesCount();
     this.getNewBuyerFeedbackCount();
     this.getUnresolveBuyerFeedbackCount();
-    this.getNewBuyerFeedback();
+    this.getCurrentPurchaseCode();
   }
 
   getTotalPurchaseCodesCount() {
@@ -70,8 +76,8 @@ export class DashboardComponent implements OnInit {
       )
   }
 
-  getNewBuyerFeedback() {
-    this.dashboardService.getNewBuyerFeedback()
+  getCurrentPurchaseCode() {
+    this.dashboardService.getCurrentPurchaseCode()
       .subscribe(
         resp => {
           this.tableData = resp.data;
@@ -79,6 +85,31 @@ export class DashboardComponent implements OnInit {
         error => {
           this.tableData = null;
         });
+  }
+
+  getPurchaseCodeLink() {
+    return '/purchase-code';
+  }
+
+  getPurchaseCodeDetailLink(purchaseCode: string): string {
+    return '/purchase-code/' + purchaseCode;
+  }
+
+  updateBlacklist(purchaseCode: string, blacklist: string) {
+    this.alertService.removeAlert();
+    this.purchaseCodeService.updateBlacklist(purchaseCode, blacklist)
+      .subscribe(
+        data => {
+          this.alertService.success('Update success!');
+          this.getCurrentPurchaseCode();
+        },
+        error => {
+          this.alertService.error('Fail to update!');
+        });
+  }
+
+  search(purchaseCode: string) {
+    this.router.navigateByUrl('/purchase-code/' + this.model.purchaseCode);
   }
 
 }

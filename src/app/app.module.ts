@@ -16,7 +16,7 @@ import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { JwtInterceptor } from './_helpers/index';
 import { AlertService, AuthenticationService, UserService, VerifyAttemptService, BuyerFeedbackService,
-        DashboardService } from './_services/index';
+        PurchaseCodeService, DashboardService, WhitelistService } from './_services/index';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -25,6 +25,9 @@ import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.componen
 import { BuyerFeedbackComponent } from './buyer-feedback/buyer-feedback.component';
 import { BuyerFeedbackDetailComponent } from './buyer-feedback-detail/buyer-feedback-detail.component';
 import { BuyerFeedbackFormComponent } from './buyer-feedback-form/buyer-feedback-form.component';
+import { PurchaseCodeComponent } from './purchase-code/purchase-code.component';
+import { PurchaseCodeDetailComponent } from './purchase-code-detail/purchase-code-detail.component';
+import { WhitelistComponent } from './whitelist/whitelist.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
@@ -48,6 +51,9 @@ import { AppConfig } from './app.config'
     BuyerFeedbackComponent,
     BuyerFeedbackDetailComponent,
     BuyerFeedbackFormComponent,
+    PurchaseCodeComponent,
+    PurchaseCodeDetailComponent,
+    WhitelistComponent,
     TableListComponent,
     TypographyComponent,
     IconsComponent,
@@ -74,8 +80,10 @@ import { AppConfig } from './app.config'
     AuthenticationService,
     VerifyAttemptService,
     BuyerFeedbackService,
+    PurchaseCodeService,
     UserService,
     DashboardService,
+    WhitelistService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: JwtInterceptor,

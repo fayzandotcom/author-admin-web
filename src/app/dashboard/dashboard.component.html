@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <!--<div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="card card-stats" >
                         <div class="card-header" data-background-color="blue">
                             <i class="material-icons">assignment</i>
@@ -46,10 +46,73 @@
                             <h3 class="title">{{model.unresolveBuyerFeedback}}</h3>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
 
             <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="blue">
+                            <h4 class="title">Purchase Code</h4>
+                            <p class="category">Current 10 purchase code. <a [routerLink]="[this.getPurchaseCodeLink()]">View More</a></p>
+                        </div>
+                        <div class="card-content">
+                            <alert></alert>
+                            <form name="formSearch" (ngSubmit)="formSearch.form.valid && search()" #formSearch="ngForm" novalidate>
+                                <div class="row"> 
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty" [ngClass]="{ 'has-error': formSearch.submitted && !purchaseCode.valid }">
+                                            <label class="control-label">Purchase Code</label>
+                                            <input type="text" class="form-control" name="purchaseCode" [(ngModel)]="model.purchaseCode" #purchaseCode="ngModel" required>
+                                            <div *ngIf="formSearch.submitted && !purchaseCode.valid" class="help-block">Purchase Code is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-success">Search</button>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                        <div class="card-content">
+                            <div class="row">
+                                <table class="table">
+                                    <thead class="text-success">
+                                        <tr>
+                                            <th><strong>Purchase Code</strong></th>
+                                            <th><strong>Buyer name</strong></th>
+                                            <th><strong>Tries Allowed</strong></th>
+                                            <th><strong>Total Attempt</strong></th>
+                                            <th><strong>Blacklist</strong></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of tableData">
+                                            <td>{{row.purchase_code}}</td>
+                                            <td>{{row.buyer_name}}</td>
+                                            <td>{{row.total_tries}}</td>
+                                            <td>{{row.total_attempt}}</td>
+                                            <td>
+                                                <span *ngIf="row.blacklist==0">No</span>
+                                                <span *ngIf="row.blacklist==1">Yes</span>
+                                            </td>
+                                            <td>
+                                                <a [routerLink]="[this.getPurchaseCodeDetailLink(row.purchase_code)]"
+                                                    class="btn btn-success btn-sm">Detail</a>
+                                                <button *ngIf="row.blacklist==0" class="btn btn-success btn-sm" (click)="updateBlacklist(row.purchase_code, '1')">Blacklist</button>
+                                                <button *ngIf="row.blacklist==1" class="btn btn-success btn-sm" (click)="updateBlacklist(row.purchase_code, '0')">Remove Blacklist</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="blue">
@@ -62,7 +125,6 @@
                                     <tr>
                                         <th><strong>Date</strong></th>
                                         <th><strong>Purchase Code</strong></th>
-                                        <!--<th><strong>Email</strong></th>-->
                                         <th><strong>Status</strong></th>
                                         <th></th>
                                     </tr>
@@ -71,7 +133,6 @@
                                     <tr *ngFor="let row of tableData">
                                         <td>{{row.created_date}}</td>
                                         <td>{{row.purchase_code}}</td>
-                                        <!--<td>{{row.email}}</td>-->
                                         <td>
                                             <span *ngIf="row.status==0">Unread</span>
                                             <span *ngIf="row.status==1">Read</span>
@@ -84,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
     

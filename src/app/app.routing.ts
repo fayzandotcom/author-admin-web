@@ -13,6 +13,9 @@ import { VerifyAttemptComponent } from './verify-attempt/verify-attempt.componen
 import { BuyerFeedbackComponent } from './buyer-feedback/buyer-feedback.component';
 import { BuyerFeedbackDetailComponent } from './buyer-feedback-detail/buyer-feedback-detail.component';
 import { BuyerFeedbackFormComponent } from './buyer-feedback-form/buyer-feedback-form.component';
+import { PurchaseCodeComponent } from './purchase-code/purchase-code.component';
+import { PurchaseCodeDetailComponent } from './purchase-code-detail/purchase-code-detail.component';
+import { WhitelistComponent } from './whitelist/whitelist.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
@@ -32,7 +35,7 @@ const routes: Routes = [
       children: [
         { path: 'login', component: LoginComponent },
         { path: 'logout', component: LoginComponent },
-        { path: 'feedback', component: BuyerFeedbackFormComponent },
+        // { path: 'feedback', component: BuyerFeedbackFormComponent },
       ]
     },
     // secure routes
@@ -45,8 +48,11 @@ const routes: Routes = [
         { path: 'user-profile',   component: UserProfileComponent },
         { path: 'change-password',  component: ChangePasswordComponent },
         { path: 'verify-attempt', component: VerifyAttemptComponent },
-        { path: 'buyer-feedback', component: BuyerFeedbackComponent },
-        { path: 'buyer-feedback/:id', component: BuyerFeedbackDetailComponent },
+        // { path: 'buyer-feedback', component: BuyerFeedbackComponent },
+        // { path: 'buyer-feedback/:id', component: BuyerFeedbackDetailComponent },
+        { path: 'purchase-code', component: PurchaseCodeComponent },
+        { path: 'purchase-code/:purchaseCode', component: PurchaseCodeDetailComponent },
+        { path: 'whitelist', component: WhitelistComponent },
         { path: 'table-list',     component: TableListComponent },
         { path: 'typography',     component: TypographyComponent },
         { path: 'icons',          component: IconsComponent },
