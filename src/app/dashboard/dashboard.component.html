@@ -80,6 +80,7 @@
                                     <thead class="text-success">
                                         <tr>
                                             <th><strong>Purchase Code</strong></th>
+                                            <th><strong>Item name</strong></th>
                                             <th><strong>Buyer name</strong></th>
                                             <th><strong>Tries Allowed</strong></th>
                                             <th><strong>Total Attempt</strong></th>
@@ -90,6 +91,7 @@
                                     <tbody>
                                         <tr *ngFor="let row of tableData">
                                             <td>{{row.purchase_code}}</td>
+                                            <td>{{row.item_name}}</td>
                                             <td>{{row.buyer_name}}</td>
                                             <td>{{row.total_tries}}</td>
                                             <td>{{row.total_attempt}}</td>

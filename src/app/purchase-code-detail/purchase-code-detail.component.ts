@@ -35,6 +35,7 @@ export class PurchaseCodeDetailComponent implements OnInit {
       .subscribe(
         resp => {
           this.model.purchaseCode = resp.purchase_code;
+          this.model.itemName = resp.item_name;
           this.model.buyerName = resp.buyer_name;
           this.model.lastAttemptDate = resp.last_attempt_date;
           this.model.blacklist = resp.blacklist;
